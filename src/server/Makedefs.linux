@@ -1,0 +1,17 @@
+C++ = g++
+.SUFFIXES: .cxx
+.cxx.o:
+	$(C++) $(C++FLAGS) -c $<
+
+OPTorDEBUG = -O
+
+CFLAGS = $(OPTorDEBUG) -I/usr/local/include -DAUDIOFILE_LIBRARY -UDEBUG
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)
+
+#LIBS = -L/usr/local/lib -laudiofile -L/usr/local/lib/oss -lOSSlib -lm
+LIBS = -L/usr/local/lib -laudiofile -lm
+
+AUDIOIFACE = audioIface-linux.o
+

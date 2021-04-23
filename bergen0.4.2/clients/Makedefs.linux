@@ -1,0 +1,14 @@
+C++ = g++
+.SUFFIXES: .cxx
+.cxx.o:
+	$(C++) $(C++FLAGS) -c $<
+
+OPTorDEBUG = -O
+BITS =
+
+CFLAGS = $(OPTorDEBUG)  $(BITS)  -I../clientlib
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)  $(BITS)
+
+LIBS = -L../clientlib -lbergen

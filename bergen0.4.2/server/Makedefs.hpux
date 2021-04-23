@@ -1,0 +1,16 @@
+C++ = CC
+.SUFFIXES: .cxx
+.cxx.o:
+	$(C++) $(C++FLAGS) -c $<
+
+OPTorDEBUG = -O
+
+CFLAGS = $(OPTorDEBUG) -I/usr/local/include -I/opt/audio/include \
+	-UAUDIOFILE_LIBRARY
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)
+
+LIBS = -L/opt/audio/lib -lAlib -lm
+
+AUDIOIFACE = audioIface-hpux.o

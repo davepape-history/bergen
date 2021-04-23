@@ -1,0 +1,13 @@
+OPTorDEBUG = -O
+
+BITS = -n32
+
+CFLAGS = $(OPTorDEBUG)  $(BITS) -DAUDIOFILE_LIBRARY
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)  $(BITS)
+
+LIBS = -laudiofile -laudio -lm
+
+AUDIOIFACE = audioIface-sgi.o
+

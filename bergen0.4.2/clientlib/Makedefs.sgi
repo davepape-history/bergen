@@ -1,0 +1,7 @@
+OPTorDEBUG = -O
+#BITS = -32
+BITS = -n32
+#BITS = -64
+
+CFLAGS = $(OPTorDEBUG)  $(BITS) -mips3 -DNO_SOCKLEN
+C++FLAGS = $(CFLAGS)

@@ -1,0 +1,26 @@
+Bergen Version 0.4.1 Source Code
+http://www.evl.uic.edu/pape/sw/bergen/
+Dave Pape, pape@evl.uic.edu
+
+
+
+Contents:
+
+  clientlib/ - source for the libbergen.a client library.  This is what
+	applications use to communicate with the snerd server.
+
+  clients/ - some example Bergen programs.  bergenPlay plays a single
+	sample file; bergenKill tells the server to exit; bergenGain
+	provides a Motif slider to control the overall gain of the
+	server with.
+
+  server/ - source for the snerd audio server.
+
+
+To compile, edit the Makefile in each directory; make sure the 'include'
+command at the top includes the appropriate file for your platform -
+either Makedefs.sgi for IRIX, or Makedefs.linux for Linux.
+Under Linux, if you do not have the audiofile library (libaudiofile),
+change the "-DAUDIOFILE_LIBRARY" in server/Makedefs.linux to
+"-UAUDIOFILE_LIBRARY".
+

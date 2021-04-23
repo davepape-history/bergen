@@ -1,0 +1,14 @@
+C++ = CC
+.SUFFIXES: .cxx
+.cxx.o:
+	$(C++) $(C++FLAGS) -c $<
+
+OPTorDEBUG = -O
+BITS =
+
+CFLAGS = $(OPTorDEBUG)  $(BITS)  -I../../include
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)  $(BITS)
+
+LIBS = -L../../lib -lbergen

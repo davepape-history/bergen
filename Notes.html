@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>
+Bergen Design Notes
+</title>
+<meta name="Author" content="Dave Pape">
+<link rev="made" href="mailto:pape@evl.uic.edu">
+</head>
+
+<body>
+<h1> Bergen Design Notes </h1>
+
+<i>bergen</i> has been created in response to the following issues with VSS
+and libsnd:
+
+<ul>
+
+<li> Not freely distributed - many new CAVE/IDesk sites do not (officially) have
+	VSS &amp; libsnd.
+  <ul><li>
+  bergen, including the source code, is free to whomever wants it.
+  </ul>
+<li> Only available in o32 format, not in n32 or 64-bit formats.  Lots of people
+  want to move to SGI's newer, more efficient n32 mode, but are held back by libsnd.
+  <ul><li>
+  libbergen can be compiled in o32, n32, and n64 mode.
+  </ul>
+<li> libsnd maintains global state information about the connection to vss.
+  <ul><li>
+  libbergen encapsulates the connection into a bergenServer object, to allow
+  multiple, independent connections to the same or different servers
+  </ul>
+<li> Despite being designed as an object-oriented system, libsnd is a plain C
+  API; the actorMessage() interface is a bit ugly, and sometimes confusing.
+  <ul><li>
+  libbergen uses a C++ class API (of course, this makes it unuseable in C).
+  </ul>
+<li> vss cannot be extended by others.
+  <ul><li>
+  The complete source for bergen is given out, so other programmers are free to
+  add their own features (not that that's always a good thing).
+  </ul>
+<li> vss re-uses note handles.  This means that if an actor finishes playing a sample
+  earlier than the client program expects, the client can wind up sending commands to
+  a note other than the one it thinks it's controlling.
+  <ul><li>
+  snerd will not re-use note handles (except perhaps if you play &gt; 4 billion sounds
+  and the integer IDs wrap around).
+  </ul>
+
+</ul>
+
+Note that version 3.0 of vss is meant to resolve some of these problems
+(n32/64 format and extendability).  But that wasn't available when bergen
+was created.
+
+
+<p>
+
+Some features I might try to add to bergen in the future:
+
+<ul>
+
+<li> Network sound objects - i.e. an audio stream from a multicast group
+
+<li> Objects that deal with audio input, for annotation
+
+<li> Simple localization
+
+<li> Sound prioritization - this would allow a very large number of sounds to be
+  active at once; snerd would drop out low-priority sounds any time the load exceeded
+  what it could handle.
+
+<li> Pitch control
+
+<li> Add a vss interface, to allow bergen to transparently control either
+  snerd or vss.
+
+<li> A GUI client, for things like resetting, listing &amp; deleting sounds, etc.
+
+<li> Capability of precisely synchronizing sounds - i.e., have a group of samples
+	all 'start' at the same time, so that a client can switch from one to another
+	without breaks.
+
+<li> Make snerd multi-processing
+
+<li> Be able to select which audio device to use, and the UDP port to listen to,
+	so that multiple sound boards on a single system can be supported.
+
+<li> Built-in test sounds (1 KHz tone, white noise)
+
+</ul>
+
+
+
+<hr>
+
+Last modified 16 June 1997.
+<address>
+<a href=/pape/>Dave Pape</a>, <a href=mailto:pape@evl.uic.edu>pape@evl.uic.edu</a>
+</address>
+
+</body>
+</html>

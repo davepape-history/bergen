@@ -1,0 +1,15 @@
+C++ = g++
+.SUFFIXES: .cxx
+.cxx.o:
+	$(C++) $(C++FLAGS) -c $<
+
+OPTorDEBUG = -O
+
+CFLAGS = $(OPTorDEBUG) -I/usr/local/include -I../clientlib \
+	-UNO_AUDIOFILE_LIBRARY -UDEBUG
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)
+
+LIBS = -L/usr/local/lib -laudiofile -lm
+

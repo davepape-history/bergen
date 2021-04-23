@@ -1,0 +1,13 @@
+OPTorDEBUG = -O
+
+BITS = -n32
+
+CFLAGS = $(OPTorDEBUG)  $(BITS) -mips3 -DNO_SOCKLEN -DAUDIOFILE_LIBRARY
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)  $(BITS) -mips3
+
+LIBS = -laudiofile -laudio -lm
+
+AUDIOIFACE = audioIface-sgi.o
+

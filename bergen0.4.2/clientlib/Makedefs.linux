@@ -1,0 +1,7 @@
+OPTorDEBUG = -O
+CFLAGS = $(OPTorDEBUG)
+C++ = c++
+C++FLAGS = $(CFLAGS)
+.SUFFIXES: .cxx
+.cxx.o:
+	$(C++) $(C++FLAGS) -c $<

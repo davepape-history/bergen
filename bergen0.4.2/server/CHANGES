@@ -1,0 +1,26 @@
+snerd0.4alpha0
+
+	added getDuration message to SampleFile class
+
+alpha1
+
+	Fixed SampleFile to call stop() when it reaches the end of a file (in
+    read*Frames).  Previously, subsequent plays would do nothing, since it was
+    stuck at the end of the file until an explicit "stop" command was received.
+	Changed SampleFile to not mark itself as removeable unless it receives
+    a "kill" command.  Before, it would allow itself to be removed if it failed
+    to open the sample file; this caused problems with the new getDuration message -
+    the client would wait forever for a reply from a now non-existent sound.
+	Added "gain" command to main program, to allow setting an overall
+    gain factor for the sound.
+
+
+
+--
+
+0.5
+	Fixed bergenUDPSocket - needed to do an htons() on the port number.
+	This makes it not backwards-compatible with previous versions' clients
+on Intel machines (except by manually mangling BERGEN_PORT or the udpport
+argument for snerd).  0.4 will not work properly when sending commands between
+Intel & SGI machines.

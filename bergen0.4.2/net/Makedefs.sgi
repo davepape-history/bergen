@@ -1,0 +1,11 @@
+OPTorDEBUG = -O
+
+BITS = -n32
+
+CFLAGS = $(OPTorDEBUG)  $(BITS) -I../clientlib -UNO_AUDIOFILE_LIBRARY
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)  $(BITS)
+
+LIBS = -laudiofile -laudio -lm
+

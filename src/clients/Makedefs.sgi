@@ -1,0 +1,9 @@
+OPTorDEBUG = -O
+BITS = -n32
+
+CFLAGS = $(OPTorDEBUG)  $(BITS)  -I$(BERGEN_DIR)/include
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)  $(BITS)
+
+LIBS = -L$(BERGEN_DIR)/lib -lbergen

@@ -1,0 +1,9 @@
+OPTorDEBUG = -O
+BITS = -n32
+
+CFLAGS = $(OPTorDEBUG)  $(BITS)  -I../clientlib
+C++FLAGS = $(CFLAGS)
+
+LFLAGS = $(OPTorDEBUG)  $(BITS)
+
+LIBS = -L../clientlib -lbergen
